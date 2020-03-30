@@ -1,0 +1,54 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * GraphQL Srcset plugin for Craft CMS 3.x
+ *
+ * GraphQL Srcset Settings.twig
+ *
+ * @author    Jayden Smith
+ * @copyright Copyright (c) 2020 Jayden Smith
+ * @link      https://tas.dev
+ * @package   GraphqlSrcset
+ * @since     1.0.0
+ */
+#}
+
+{% extends '_layouts/cp' %}
+
+{% set title = 'GraphQL Srcset Settings' | t('graphql-srcset') %}
+
+{% import '_includes/forms' as forms %}
+
+{% if settings is not defined %}
+    {% set settings = craft.graphqlSrcset.plugin.settings %}
+{% endif %}
+
+{% block content %}
+
+    <form action="" method="post" accept-charset="UTF-8">
+        <input type="hidden" name="action" value="graphql-srcset/settings/save-settings">
+        {{ redirectInput('graphql-srcset/settings') }}
+        {{ csrfInput() }}
+
+        {{ forms.editableTableField({
+            label: 'Default Image Widths' | t('graphql-srcset'),
+            instructions: 'Enter the default set of image widths to be returned when using the srcset directive without specifying them explicitly.' | t('graphql-srcset'),
+            id: 'widths',
+            name: 'settings[widths]',
+            first: true,
+            last: true,
+            cols: {
+                width: {
+                    type: 'number',
+                    heading: 'Width' | t('auctions'),
+                    info: 'The image width to use in the transform.' | t('graphql-srcset'),
+                },
+            },
+            rows: settings.widths | map(row => { width: row }),
+            errors: settings.getErrors('widths') ?? null
+        }) }}
+
+        <input type="submit" class="btn submit" value="{{ 'Save' | t('app') }}">
+    </form>
+
+{% endblock %}

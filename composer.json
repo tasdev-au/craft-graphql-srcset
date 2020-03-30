@@ -1,0 +1,41 @@
+{
+    "name": "tasdev-au/craft-graphql-srcset",
+    "description": "Adds the @srcset GraphQL directive for generating a comma-separated list of image transforms.",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "graphql srcset"
+    ],
+    "support": {
+        "docs": "https://github.com/tasdev-au/graph-ql-srcset/blob/master/README.md",
+        "issues": "https://github.com/tasdev-au/craft-graphql-srcset/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jayden Smith",
+            "homepage": "https://tas.dev"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0-RC1"
+    },
+    "autoload": {
+        "psr-4": {
+          "tasdev\\graphqlsrcset\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "GraphQL Srcset",
+        "handle": "graphql-srcset",
+        "developer": "Jayden Smith",
+        "developerUrl": "https://tas.dev",
+        "documentationUrl": "https://github.com/tasdev-au/craft-graphql-srcset/blob/master/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/tasdev-au/craft-graphql-srcset/master/CHANGELOG.md",
+        "class": "tasdev\\graphqlsrcset\\GraphqlSrcset"
+    }
+}
