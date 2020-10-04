@@ -102,6 +102,7 @@ class SrcSet extends Directive
                 $transforms[] = [
                     'width' => $width,
                     'height' => isset($arguments['ratio']) ? round($width * floatval($arguments['ratio'])) : null,
+                    'format' => isset($arguments['format']) ? $arguments['format'] : null,
                 ];
             }
         }
@@ -112,6 +113,7 @@ class SrcSet extends Directive
             $transforms[] = [
                 'width' => $imageWidth,
                 'height' => isset($arguments['ratio']) ? round($imageWidth * floatval($arguments['ratio'])) : null,
+                'format' => isset($arguments['format']) ? $arguments['format'] : null,
             ];
         }
 
