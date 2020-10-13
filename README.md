@@ -9,8 +9,6 @@ Adds the @srcset GraphQL directive for generating a comma-separated list of imag
 - Set default widths for all srcset transforms.
 - Specify a ratio to generate all images using the same aspect ratio.
 
-## Toubleshooting
-- If you're having issues with the directive not simply returning the URL with no transforms, you must specify at least one argument in the directive. Consider adding the `immediately` argument.
 
 ## Support
 

@@ -2,7 +2,7 @@
     "name": "tasdev-au/craft-graphql-srcset",
     "description": "Adds the @srcset GraphQL directive for generating a comma-separated list of image transforms.",
     "type": "craft-plugin",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "keywords": [
         "craft",
         "cms",
@@ -22,7 +22,7 @@
         }
     ],
     "require": {
-        "craftcms/cms": "^3.0.0-RC1"
+        "craftcms/cms": "^3.3"
     },
     "autoload": {
         "psr-4": {

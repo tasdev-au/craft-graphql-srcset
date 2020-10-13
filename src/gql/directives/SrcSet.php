@@ -84,7 +84,7 @@ class SrcSet extends Directive
             return $value;
         }
 
-        if (!($onAssetElement || $onApplicableAssetField) || empty($arguments) ) {
+        if (!$onAssetElement && !$onApplicableAssetField) {
             return $value;
         }
 
