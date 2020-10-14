@@ -35,7 +35,7 @@ class SrcSet extends Arguments
             ],
             'ratio' => [
                 'name' => 'ratio',
-                'type' => [Type::float(), Type::string()],
+                'type' => Type::float(),
                 'description' => 'Optional aspect ratio for the generated transforms'
             ],
             'mode' => [
