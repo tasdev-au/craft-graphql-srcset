@@ -41,7 +41,7 @@ class SrcSet extends Arguments
             'mode' => [
                 'name' => 'mode',
                 'type' => Type::string(),
-                'description' => 'The mode to use for the generated transform'
+                'description' => 'The mode to use for the generated transform.'
             ],
             'position' => [
                 'name' => 'position',
@@ -66,7 +66,7 @@ class SrcSet extends Arguments
             'immediately' => [
                 'name' => 'immediately',
                 'type' => Type::boolean(),
-                'description' => 'Whether the transforms should be generated immediately or only when the image is requested used the generated URL'
+                'description' => 'Whether the transform should be generated immediately or only when the image is requested used the generated URL'
             ],
         ];
     }

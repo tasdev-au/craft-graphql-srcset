@@ -99,24 +99,14 @@ class SrcSet extends Directive
         $transforms = [];
         foreach ($widths as $width) {
             if ($width <= $imageWidth) {
-                $transforms[] = [
-                    'width' => $width,
-                    'height' => isset($arguments['ratio']) ? round($width * floatval($arguments['ratio'])) : null,
-                    'mode' => isset($arguments['mode']) ? $arguments['mode'] : null,
-                    'format' => isset($arguments['format']) ? $arguments['format'] : null,
-                ];
+                $transforms[] = static::_generateTransform($width, $arguments);
             }
         }
 
         $lastWidth = end($widths);
         $lastTransform = end($transforms);
         if (!$lastTransform || ($lastTransform['width'] < $imageWidth && $imageWidth < $lastWidth)) {
-            $transforms[] = [
-                'width' => $imageWidth,
-                'height' => isset($arguments['ratio']) ? round($imageWidth * floatval($arguments['ratio'])) : null,
-                'mode' => isset($arguments['mode']) ? $arguments['mode'] : null,
-                'format' => isset($arguments['format']) ? $arguments['format'] : null,
-            ];
+            $transforms[] = static::_generateTransform($imageWidth, $arguments);
         }
 
         $urls = [];
@@ -126,5 +116,32 @@ class SrcSet extends Directive
         }
 
         return implode(', ', $urls);
+    }
+
+    private static function _generateTransform($width, $arguments)
+    {
+        $transform = [
+            'width' => $width,
+            'height' => isset($arguments['ratio']) ? round($width * floatval($arguments['ratio'])) : null,
+            'format' => isset($arguments['format']) ? $arguments['format'] : null,
+        ];
+
+        if (isset($arguments['mode'])) {
+            $transform['mode'] = $arguments['mode'];
+        }
+
+        if (isset($arguments['position'])) {
+            $transform['position'] = $arguments['position'];
+        }
+
+        if (isset($arguments['interlace'])) {
+            $transform['interlace'] = $arguments['interlace'];
+        }
+
+        if (isset($arguments['quality'])) {
+            $transform['quality'] = $arguments['quality'];
+        }
+
+        return $transform;
     }
 }
